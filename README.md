@@ -33,7 +33,7 @@ has_many :purchases
 
 ### Association
 has_one :purchase
-belong_to :user
+belongs_to :user
 
 ## purchases テーブル
 
