@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @items = Item.order("created_at DESC")
+    @items = Item.order("created_at DESC").includes(:purchase)
   end
 
   def new
@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.purchase.present?
+      redirect_to root_path
+    end
   end
 
   def update
