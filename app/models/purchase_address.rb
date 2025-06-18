@@ -9,6 +9,7 @@ class PurchaseAddress
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: "は10〜11桁の半角数字で入力してください（例: 09012345678）" }
     validates :item_id
     validates :user_id
+    validates :token
   end
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank" }
 
